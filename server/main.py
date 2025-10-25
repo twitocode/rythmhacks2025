@@ -25,6 +25,8 @@ questions = [
     {"question": "", "answer": ""},
 ]
 
+uploaded_files = []
+
 
 @app.get("/")
 def read_root():
@@ -32,11 +34,21 @@ def read_root():
 
 
 @app.get("/ai/question")
-def get_question(item_id: int, q: Union[str, None] = None):
-    return {"question": question, "q": "hey there"}
+def get_question():
+    global current_question_index
+    if len(uploaded_files) == 0:
+        return {"error": "no questions loaded yet"}
+    else:
+        current_question_index += 1
+        
+
+    if current_question_index == len(uploaded_files):
+        current_question_index = 0
+
+    return uploaded_files[current_question_index]
 
 
-@app.post("/upload-pdf/")
+@app.post("/upload-pdf")
 async def upload_pdf(pdf_file: Annotated[UploadFile, File(...)]):
     if pdf_file.content_type != "application/pdf":
         return {"error": "Only PDF files are allowed."}
@@ -47,5 +59,5 @@ async def upload_pdf(pdf_file: Annotated[UploadFile, File(...)]):
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text()
-
-    return {"filename": pdf_file.filename, "extracted_text": text}
+    uploaded_files.append({"filename": pdf_file.file.name, "text": text})
+    return {"value": f"Successfully uploaded {pdf_file.filename}"}
