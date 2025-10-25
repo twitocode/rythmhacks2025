@@ -4,34 +4,47 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { ThemedView } from './themed-view';
 
-export default function Flashcard() {
-    const [showButtons, setShowButtons] = useState(false)
+export default function Flashcard({ onReset, onHide }: any) {
+    const [showQuestion, setShowQuestion] = useState(true);
+    const [showButton, setShowButton] = useState(true);
+    const [showAnswer, setShowAnswer] = useState(false);
+
+    const handleReveal = () => {
+        setShowButton(false);
+        setShowAnswer(true);
+        onReset();
+        setTimeout(() => {
+            onHide();
+        }, 3000);
+    };
 
     return (
-        <ThemedView style={styles.flashcard_container}>
-            <ThemedText type="title">
-                What is the mitochondria?
-            </ThemedText>
-            {!showButtons && (
+        <ThemedView style={styles.flashcardContainer}>
+            {showQuestion && (
+                <ThemedText type="title">
+                    What is the mitochondria?
+                </ThemedText>
+            )}
+            {showButton && (
                 <>
-                    <Button onPress={() => setShowButtons(true)}>Reveal</Button>
+                    <Button onPress={handleReveal}>Reveal</Button>
                 </>
             )}
-            {showButtons && (
+            {showAnswer && (
                 <>
                     <ThemedText>
                         The powerhouse of the cell
                     </ThemedText>
                 </>
             )}
-            
+
         </ThemedView>
     );
 }
 
 
 const styles = StyleSheet.create({
-  flashcard_container: {
+  flashcardContainer: {
     marginTop: 50,
   }
 });
