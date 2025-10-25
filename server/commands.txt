@@ -1,0 +1,2 @@
+inside of server:
+fastapi dev main.py
