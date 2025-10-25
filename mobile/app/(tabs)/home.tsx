@@ -1,11 +1,12 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
+
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import CountdownTimer from '/Users/nicholas/Documents/Coding/rythmhacks2025/mobile/components/timer';
 
 export default function HomeScreen() {
   return (
@@ -19,6 +20,9 @@ export default function HomeScreen() {
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Study Flow</ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+        <CountdownTimer />
       </ThemedView>
     </ParallaxScrollView>
   );
