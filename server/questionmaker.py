@@ -1,30 +1,30 @@
 import sys
-import pysqlite3
-sys.modules['sqlite3'] = pysqlite3
+import sqlite3
+sys.modules['sqlite3'] = sqlite3
 
-from groq import Groq
-from langchain_community.vectorstores import Chroma
-from langchain_chroma import Chroma
-from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import TokenTextSplitter
 import os
 from pathlib import Path
+
+from groq import Groq
+from langchain.vectorstores import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import TokenTextSplitter
 
 # --- Configuration ---
 DB_CONFIG = {
     "pdf": {
-        "data_path": "/Users/DSoni/Downloads/RythmHacks/Chapter 1 Notes.pdf",
+        "data_path": "/Users/DSoni/Documents/RythmHacks/rythmhacks2025/server/Chapter 1 Notes.pdf",
         "db_path": "/Users/DSoni/Downloads/RythmHacks/chroma_db"
     }
 }
 
-# ✅ Set up your Groq client (make sure you’ve exported GROQ_API_KEY first)
+# --- Groq Client ---
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # --- Initialize Chroma database ---
 def initialize_databases():
-    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     databases = {}
 
     for db_type, config in DB_CONFIG.items():
@@ -43,7 +43,6 @@ def initialize_databases():
             embedding=embeddings,
             persist_directory=db_path
         )
-        databases[db_type].persist()
 
     return databases["pdf"]
 
@@ -53,18 +52,17 @@ def generate_flashcards_from_pdf(pdf_db, k=10):
     combined_text = "\n".join(all_docs[:k])
 
     prompt = f"""
-    You are an expert tutor creating study flashcards.
-    Read the following notes and generate 10 flashcards.
-    Each flashcard should be formatted as:
-    Q: <question>
-    A: <answer>
+You are an expert tutor creating study flashcards.
+The flashcards should be formatted as:
+Q: <question>
+A: <answer>
 
-    Notes:
-    {combined_text}
-    """
+Notes:
+{combined_text}
+"""
 
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="llama3-13b",
         messages=[
             {"role": "system", "content": "You are an educational flashcard generator."},
             {"role": "user", "content": prompt}
@@ -83,11 +81,8 @@ if __name__ == "__main__":
 
     print("⚡ Generating flashcards...")
     flashcards = generate_flashcards_from_pdf(pdf_db)
-    print("\n Flashcards Generated:\n")
+    print("\nFlashcards Generated:\n")
     print(flashcards)
-
-
-
 
 
 # import sys
