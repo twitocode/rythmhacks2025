@@ -55,8 +55,10 @@ def generate_flashcards_from_pdf(pdf_db, k=10):
 
     prompt = f"""
 You are an expert tutor creating study flashcards.
-The flashcards should be formatted as json objects that have question and answer fields.
-Clear and related to the notes. Don't include headings. 
+The flashcards should be formatted as:
+Q: <question>
+A: <answer>
+
 Notes:
 {combined_text}
 """
@@ -83,5 +85,3 @@ if __name__ == "__main__":
     flashcards = generate_flashcards_from_pdf(pdf_db)
     print("\nFlashcards Generated:\n")
     print(flashcards)
-    with open('set.json', 'a+') as f:
-        f.write(flashcards)
