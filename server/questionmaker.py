@@ -79,11 +79,11 @@ def generate_flashcards_from_pdf(pdf_db, k=10):
 if __name__ == "__main__":
     print("📚 Initializing vector database...")
     pdf_db = initialize_databases()
-    print("✅ Database ready!\n")
+    print("Database ready!\n")
 
     print("⚡ Generating flashcards...")
     flashcards = generate_flashcards_from_pdf(pdf_db)
-    print("\n✅ Flashcards Generated:\n")
+    print("\n Flashcards Generated:\n")
     print(flashcards)
 
 
