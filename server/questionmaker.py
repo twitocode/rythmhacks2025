@@ -62,9 +62,9 @@ Notes:
 """
 
     response = client.chat.completions.create(
-        model="llama3-13b",
+        model="llama-3.1-8b-instant",
         messages=[
-            {"role": "system", "content": "You are an educational flashcard generator."},
+            {"role": "system", "content": "You are a tutor. Based on the content provided, generate study flashcards. these should be clear and based on the notes."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.7,
