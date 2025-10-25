@@ -3,7 +3,6 @@ import pysqlite3
 sys.modules['sqlite3'] = pysqlite3
 
 from groq import Groq
-
 from langchain_community.vectorstores import Chroma
 from langchain_chroma import Chroma
 from langchain_community.embeddings import SentenceTransformerEmbeddings
@@ -12,6 +11,7 @@ from langchain.text_splitter import TokenTextSplitter
 import os
 from pathlib import Path
 
+# --- Configuration ---
 DB_CONFIG = {
     "pdf": {
         "data_path": "/Users/DSoni/Downloads/RythmHacks/Chapter 1 Notes.pdf",
@@ -19,12 +19,10 @@ DB_CONFIG = {
     }
 }
 
-from groq import Groq
+# ✅ Set up your Groq client (make sure you’ve exported GROQ_API_KEY first)
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-client = Groq(api_key="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")
-
-
-# --- Initialize the vector database ---
+# --- Initialize Chroma database ---
 def initialize_databases():
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     databases = {}
@@ -51,18 +49,16 @@ def initialize_databases():
 
 # --- Generate Flashcards ---
 def generate_flashcards_from_pdf(pdf_db, k=10):
-    # Retrieve embedded document chunks
     all_docs = pdf_db.get()['documents']
-    combined_text = "\n".join(all_docs[:k])  # Combine first k chunks
+    combined_text = "\n".join(all_docs[:k])
 
     prompt = f"""
     You are an expert tutor creating study flashcards.
     Read the following notes and generate 10 flashcards.
-    Each flashcard must be in this format:
+    Each flashcard should be formatted as:
     Q: <question>
     A: <answer>
 
-    Keep questions short, specific, and focused on key facts or concepts.
     Notes:
     {combined_text}
     """
@@ -79,21 +75,117 @@ def generate_flashcards_from_pdf(pdf_db, k=10):
 
     return response.choices[0].message.content.strip()
 
-# --- Streamlit UI ---
-def main():
-    st.title("📘 PDF Flashcard Generator")
-
-    with st.spinner("Initializing database..."):
-        pdf_db = initialize_databases()
-
-    if st.button("Generate Flashcards"):
-        with st.spinner("Generating flashcards..."):
-            flashcards = generate_flashcards_from_pdf(pdf_db)
-            st.success("✅ Flashcards Generated!")
-            st.text_area("Flashcards", flashcards, height=500)
-
+# --- Main Execution ---
 if __name__ == "__main__":
-    main()
+    print("📚 Initializing vector database...")
+    pdf_db = initialize_databases()
+    print("✅ Database ready!\n")
+
+    print("⚡ Generating flashcards...")
+    flashcards = generate_flashcards_from_pdf(pdf_db)
+    print("\n✅ Flashcards Generated:\n")
+    print(flashcards)
+
+
+
+
+
+# import sys
+# import pysqlite3
+# sys.modules['sqlite3'] = pysqlite3
+
+# from groq import Groq
+
+# from langchain_community.vectorstores import Chroma
+# from langchain_chroma import Chroma
+# from langchain_community.embeddings import SentenceTransformerEmbeddings
+# from langchain_community.document_loaders import PyPDFLoader
+# from langchain.text_splitter import TokenTextSplitter
+# import os
+# from pathlib import Path
+
+# DB_CONFIG = {
+#     "pdf": {
+#         "data_path": "/Users/DSoni/Downloads/RythmHacks/Chapter 1 Notes.pdf",
+#         "db_path": "/Users/DSoni/Downloads/RythmHacks/chroma_db"
+#     }
+# }
+
+# from groq import Groq
+
+# client = Groq(api_key="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")
+
+
+# # --- Initialize the vector database ---
+# def initialize_databases():
+#     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+#     databases = {}
+
+#     for db_type, config in DB_CONFIG.items():
+#         db_path = config["db_path"]
+#         data_path = config["data_path"]
+#         os.makedirs(db_path, exist_ok=True)
+
+#         loader = PyPDFLoader(data_path)
+#         docs = loader.load()
+
+#         splitter = TokenTextSplitter(chunk_size=600, chunk_overlap=150)
+#         chunks = splitter.split_documents(docs)
+
+#         databases[db_type] = Chroma.from_documents(
+#             documents=chunks,
+#             embedding=embeddings,
+#             persist_directory=db_path
+#         )
+#         databases[db_type].persist()
+
+#     return databases["pdf"]
+
+# # --- Generate Flashcards ---
+# def generate_flashcards_from_pdf(pdf_db, k=10):
+#     # Retrieve embedded document chunks
+#     all_docs = pdf_db.get()['documents']
+#     combined_text = "\n".join(all_docs[:k])  # Combine first k chunks
+
+#     prompt = f"""
+#     You are an expert tutor creating study flashcards.
+#     Read the following notes and generate 10 flashcards.
+#     Each flashcard must be in this format:
+#     Q: <question>
+#     A: <answer>
+
+#     Keep questions short, specific, and focused on key facts or concepts.
+#     Notes:
+#     {combined_text}
+#     """
+
+#     response = client.chat.completions.create(
+#         model="llama3-8b-8192",
+#         messages=[
+#             {"role": "system", "content": "You are an educational flashcard generator."},
+#             {"role": "user", "content": prompt}
+#         ],
+#         temperature=0.7,
+#         max_tokens=800
+#     )
+
+#     return response.choices[0].message.content.strip()
+
+# # --- Streamlit UI ---
+# def main():
+#     st.title("📘 PDF Flashcard Generator")
+
+#     with st.spinner("Initializing database..."):
+#         pdf_db = initialize_databases()
+
+#     if st.button("Generate Flashcards"):
+#         with st.spinner("Generating flashcards..."):
+#             flashcards = generate_flashcards_from_pdf(pdf_db)
+#             st.success("✅ Flashcards Generated!")
+#             st.text_area("Flashcards", flashcards, height=500)
+
+# if __name__ == "__main__":
+#     main()
 
 
 
