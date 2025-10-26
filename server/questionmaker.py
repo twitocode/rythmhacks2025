@@ -1,35 +1,32 @@
 import os
 from pathlib import Path
 import dotenv
-from fastapi import File, UploadFile
 from groq import Groq
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import TokenTextSplitter
 import re
 import tempfile
 import shutil
-from typing import Annotated
 
-def initialize_groq() -> Groq:
-     # Load environment variables
-    dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
-    # Initialize Groq client
-    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-    return client
 
-def question_maker(pdf_file: Annotated[UploadFile, File(...)]):
-    client = initialize_groq()
+def question_maker(pdf_file):
     """
     pdf_file: a file-like object (e.g., from open('file.pdf', 'rb') or UploadFile)
     Returns a list of flashcards as JSON: [{"Q": "...", "A": "..."}, ...]
     """
+
+    # Load environment variables
+    dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
+
+    # Initialize Groq client
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
     # Save uploaded file to temporary location
     # PyPDFLoader requires a file path, not a file object
     temp_file = None
     try:
         # Create a temporary file with .pdf suffix
-        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
 
         # Copy the uploaded file content to the temp file
         shutil.copyfileobj(pdf_file.file, temp_file)
@@ -56,16 +53,19 @@ def question_maker(pdf_file: Annotated[UploadFile, File(...)]):
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[
-                {"role": "system", "content": """
+                {
+                    "role": "system",
+                    "content": """
 
  You are an expert tutor creating study flashcards.
  The flashcards should be formatted as json objects that have question and answer fields.
  Clear and related to the notes. Don't include headings or any other text.these should be clear and based on the notes. Don't include headings. Simply format the flashcards as Q: <question> A: <answer>
-"""},
-                {"role": "user", "content": prompt}
+""",
+                },
+                {"role": "user", "content": prompt},
             ],
             temperature=0.7,
-            max_tokens=800
+            max_tokens=800,
         )
 
         flashcards_text = response.choices[0].message.content.strip()

@@ -1,6 +1,42 @@
 [
-  {
-    "question": "What is the powerhouse of the cell",
-    "answer": "Mitochondria"
-  }
+    {
+        "Question": "What is the definition of the labour force?",
+        "Answer": "All people who are working or actively looking for work (anyone who could work on short notice)."
+    },
+    {
+        "Question": "Who are considered employed?",
+        "Answer": "Anyone who did paid work, unpaid work for a family business, or worked for themselves."
+    },
+    {
+        "Question": "What are discouraged workers?",
+        "Answer": "People who are available for work but have not looked for a job during the previous four weeks because they believe no jobs are available for them."
+    },
+    {
+        "Question": "What affects the labour force participation rate?",
+        "Answer": "The percentage of the working-age population that is in the labour force."
+    },
+    {
+        "Question": "What is full employment?",
+        "Answer": "Occurs when the only remaining unemployment is structural and frictional unemployment."
+    },
+    {
+        "Question": "What is the natural rate of unemployment?",
+        "Answer": "The sum of frictional and structural unemployment."
+    },
+    {
+        "Question": "What is the goal of Employment Insurance (EI)?",
+        "Answer": "To support workers who lose their jobs by replacing part of their income, allowing them to afford to spend more time searching for better jobs."
+    },
+    {
+        "Question": "What is the effect of a higher minimum wage on unemployment?",
+        "Answer": "If the minimum wage is higher than the market-clearing wage, more people want to work than there are jobs available, creating unemployment."
+    },
+    {
+        "Question": "What is the difference between the Consumer Price Index (CPI) and the GDP Deflator?",
+        "Answer": "The CPI deals with goods bought by typical households (does not have to be Canadian), while the GDP Deflator deals with goods produced in Canada."
+    },
+    {
+        "Question": "How does anticipated inflation affect the distribution of income?",
+        "Answer": "When inflation is high, the nominal interest rate is high and the gap between the nominal interest rate and the real interest rate is large, resulting in some people's income rising faster than inflation, increasing their purchasing power, while others' incomes do not."
+    }
 ]
