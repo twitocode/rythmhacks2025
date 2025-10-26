@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ScrollView, StyleSheet, Dimensions } from 'react-native';
+import { ScrollView, StyleSheet, Dimensions, Button } from 'react-native';
 import { VideoView, useVideoPlayer } from 'expo-video';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -15,16 +15,27 @@ const VIDEOS = [
   require('@/assets/videos/brainrot insta reels that make me 🥀 - RartLmao (720p, h264).mp4'),
 ];
 
-export default function HomeScreen() {
-  const [videoSource] = React.useState(() => {
-    const randomIndex = Math.floor(Math.random() * VIDEOS.length);
-    return VIDEOS[randomIndex];
-  });
-
-  const player = useVideoPlayer(videoSource, player => {
+const VideoPlayer = ({ source }: { source: any }) => {
+  const player = useVideoPlayer(source, player => {
     player.loop = true;
     player.play();
   });
+
+  return <VideoView player={player} style={styles.video} nativeControls />;
+};
+
+export default function HomeScreen() {
+  const [videoIndex, setVideoIndex] = React.useState(() =>
+    Math.floor(Math.random() * VIDEOS.length)
+  );
+
+  const loadNewVideo = () => {
+    let newIndex = Math.floor(Math.random() * VIDEOS.length);
+    while (newIndex === videoIndex && VIDEOS.length > 1) {
+      newIndex = Math.floor(Math.random() * VIDEOS.length);
+    }
+    setVideoIndex(newIndex);
+  };
 
   return (
     <ScrollView>
@@ -35,11 +46,8 @@ export default function HomeScreen() {
         <CountdownTimer />
       </ThemedView>
       <ThemedView style={styles.videoSection}>
-        <VideoView
-          player={player}
-          style={styles.video}
-          nativeControls
-        />
+        <VideoPlayer key={videoIndex} source={VIDEOS[videoIndex]} />
+        <Button title="Next Video" onPress={loadNewVideo} />
       </ThemedView>
       {/* <ThemedView style={styles.shortsSection}>
         <ThemedText type="subtitle" style={styles.sectionTitle}>
@@ -74,7 +82,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: screenWidth - 40,
-    height: screenHeight - 260,
+    height: screenHeight - 300,
   },
   shortsSection: {
     padding: 20,

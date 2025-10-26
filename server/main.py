@@ -97,14 +97,7 @@ async def upload_pdf(uploaded_file: Annotated[UploadFile, File(...)]):
         card["interval"] = 0
         card["due_date"] = datetime.now().strftime("%Y-%m-%d")
 
-    with open("set.json", "w") as f:
-        json.dump(flashcards_list, f, indent=4)
-    print("Questions saved to set.json")
-
-    return {
-        "message": "Questions generated and saved successfully!",
-        "filename": uploaded_file.filename,
-    }
+    return flashcards_list
 
 
 @app.post("/ai/question/review")
