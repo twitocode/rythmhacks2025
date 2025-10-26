@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from typing import Annotated
-from questionmaker import question_maker
+from questionmaker import question_maker, initialize_groq
 import json
 import random
 
@@ -9,7 +9,6 @@ app = FastAPI()
 @app.get("/")
 def read_root():
    return {"Hello": "World"}
-
 
 @app.get("/ai/question")
 async def get_question():

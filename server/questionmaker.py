@@ -1,27 +1,28 @@
 import os
 from pathlib import Path
 import dotenv
+from fastapi import File, UploadFile
 from groq import Groq
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import TokenTextSplitter
 import re
 import tempfile
 import shutil
+from typing import Annotated
 
+def initialize_groq() -> Groq:
+     # Load environment variables
+    dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
+    # Initialize Groq client
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    return client
 
-def question_maker(pdf_file):
+def question_maker(pdf_file: Annotated[UploadFile, File(...)]):
+    client = initialize_groq()
     """
     pdf_file: a file-like object (e.g., from open('file.pdf', 'rb') or UploadFile)
     Returns a list of flashcards as JSON: [{"Q": "...", "A": "..."}, ...]
     """
-
-
-    # Load environment variables
-    dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
-
-
-    # Initialize Groq client
-    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
     # Save uploaded file to temporary location
     # PyPDFLoader requires a file path, not a file object
