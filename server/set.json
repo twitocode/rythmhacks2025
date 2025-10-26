@@ -26,10 +26,10 @@
     {
         "Question": "What is the Inflation Rate?",
         "Answer": "The percentage increase in the average level of prices from one year to the next.",
-        "n": 0,
+        "n": 1,
         "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-10-26"
+        "interval": 1,
+        "due_date": "2025-10-27"
     },
     {
         "Question": "What does GDP measure?",

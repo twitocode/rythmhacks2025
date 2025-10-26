@@ -128,6 +128,7 @@ async def review_question(question: str, quality: int):
         3: 5,  # Easy -> perfect response
     }
     sm2_quality = quality_map[quality]
+    question = question + "?"
 
     try:
         with open("set.json", "r") as file:
@@ -138,6 +139,7 @@ async def review_question(question: str, quality: int):
     question_to_update = None
     for i, q in enumerate(questions):
         if q["Question"] == question:
+            print("question is the same")
             n = q.get("n", 0)
             ef = q.get("ef", 2.5)
             interval = q.get("interval", 0)

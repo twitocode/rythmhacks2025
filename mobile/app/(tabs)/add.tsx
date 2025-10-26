@@ -11,11 +11,7 @@ import {
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-
-// TODO change this back later
-let SERVER_URL = "http://100.100.61.15:8000";
-//SERVER_URL = "https://rythmhacks2025.onrender.com";
-// const SERVER_URL = `http://192.168.254.227:8000`; //Toheeb
+import config from "@/config"
 
 export default function AddScreen() {
   const [selectedFile, setSelectedFile] =
@@ -43,11 +39,11 @@ export default function AddScreen() {
 
     setLoading(true);
     try {
-      console.log("Uploading to:", `${SERVER_URL}/upload-pdf`);
+      console.log("Uploading to:", `${config.SERVER_URL}/upload-pdf`);
       console.log("File:", selectedFile.name);
 
       // Test if server is reachable first
-      const testResponse = await fetch(`${SERVER_URL}/`, { method: "GET" });
+      const testResponse = await fetch(`${config.SERVER_URL}/`, { method: "GET" });
       console.log("Server reachable:", testResponse.ok);
 
       const formData = new FormData();
@@ -57,7 +53,7 @@ export default function AddScreen() {
         type: selectedFile.mimeType || "application/pdf",
       } as any);
 
-      const response = await fetch(`${SERVER_URL}/upload-pdf`, {
+      const response = await fetch(`${config.SERVER_URL}/upload-pdf`, {
         method: "POST",
         body: formData,
       });

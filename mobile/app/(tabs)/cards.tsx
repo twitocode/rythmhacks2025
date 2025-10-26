@@ -3,10 +3,8 @@ import { ScrollView, StyleSheet, View } from "react-native";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
+import config from "@/config";
 
-// TODO change this back later
-let SERVER_URL = "http://100.100.61.15:8000";
-SERVER_URL = "https://rythmhacks2025.onrender.com";
 
 type Card = {
   Question: string;
@@ -23,7 +21,7 @@ export default function cards() {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(`${SERVER_URL}/ai/questions`);
+        const response = await fetch(`${config.SERVER_URL}/ai/questions`);
         const json = await response.json();
 
         setCards(json);
