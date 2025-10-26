@@ -11,15 +11,7 @@ import {
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-<<<<<<< HEAD
-
-// TODO change this back later
-const SERVER_URL = 'http://100.100.61.15:8000';
-// const SERVER_URL="https://rythmhacks2025.onrender.com"
-// const SERVER_URL = `http://192.168.254.227:8000`; //Toheeb
-=======
 import config from "@/config"
->>>>>>> 7bfce03a7f58379c007e313301e41d21509a9fe7
 
 export default function AddScreen() {
   const [selectedFile, setSelectedFile] =

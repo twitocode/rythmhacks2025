@@ -8,7 +8,11 @@ import CountdownTimer from '@/components/timer';
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
 const VIDEOS = [
-  require("@/assets/videos/Instagram Reels Brainrot COMPILATION - Zeit (720p, h264).mp4"),
+  require('@/assets/videos/1 Hour Of Brainrot Memes V1 - AlienMedia (720p, h264).mp4'),
+  require('@/assets/videos/Instagram Reels Brainrot COMPILATION - Zeit (720p, h264).mp4'),
+  require('@/assets/videos/Try not to laugh at brainrot compilation 10 - OrangeCatMemes (720p, h264).mp4'),
+  require('@/assets/videos/ULTIMATE Brain Rot Quiz 2 - BrainRotBob (720p, h264).mp4'),
+  require('@/assets/videos/brainrot insta reels that make me 🥀 - RartLmao (720p, h264).mp4'),
 ];
 
 const VideoPlayer = ({ source }: { source: any }) => {

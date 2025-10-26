@@ -1,5 +1,6 @@
 export default {
-  SERVER_URL: "https://rythmhacks2025.onrender.com",
+  SERVER_URL: "http://100.100.61.15:8000",
+  // SERVER_URL: "https://rythmhacks2025.onrender.com",
 };
 
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import config from "@/config";
 
 
 type Card = {
@@ -21,10 +21,11 @@ export default function cards() {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(`${config.SERVER_URL}/ai/questions`);
-        const json = await response.json();
-
-        setCards(json);
+        const cardsJson = await AsyncStorage.getItem("cards");
+        if (cardsJson) {
+          const parsedCards = JSON.parse(cardsJson);
+          setCards(parsedCards);
+        }
       } catch (error) {
         console.error(error);
       }

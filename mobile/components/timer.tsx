@@ -3,7 +3,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
 import Flashcard from "./flashcard";
 import { ThemedView } from "./themed-view";
-import config from "@/config";
 
 
 interface Card {
@@ -13,7 +12,7 @@ interface Card {
 }
 
 export default function CountdownTimer() {
-  const delay = 12;
+  const delay = 20;
   const [seconds, setSeconds] = useState(delay);
   const [showFlashcard, setShowFlashcard] = useState(false);
   const [flashcardKey, setFlashcardKey] = useState(0);
@@ -68,19 +67,6 @@ export default function CountdownTimer() {
         ...ratings,
         { question: currentCard.Question, difficulty },
       ]);
-
-      console.log(currentCard);
-      const withoutQuestionMark =currentCard.Question.substring(0, currentCard.Question.length -1)
-        console.log(withoutQuestionMark);
-        
-      const res = await fetch(
-        `${config.SERVER_URL}/ai/question/review?question=${"hey"}&quality=${difficulty}`,
-        {
-          method: "POST",
-        }
-      );
-      const data = await res.json();
-      console.log(data);
     }
   };
 
