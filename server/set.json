@@ -1,42 +1,82 @@
 [
     {
-        "Question": "What is the definition of the labour force?",
-        "Answer": "All people who are working or actively looking for work (anyone who could work on short notice)."
+        "Question": "What is the definition of GDP (Gross Domestic Product)?",
+        "Answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+        "n": 1,
+        "ef": 2.5,
+        "interval": 1,
+        "due_date": "2025-10-27"
     },
     {
-        "Question": "Who are considered employed?",
-        "Answer": "Anyone who did paid work, unpaid work for a family business, or worked for themselves."
+        "Question": "What is the Business Cycle?",
+        "Answer": "Alternating periods of economic expansion and recession.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What are discouraged workers?",
-        "Answer": "People who are available for work but have not looked for a job during the previous four weeks because they believe no jobs are available for them."
+        "Question": "What is the difference between Expansion and Recession?",
+        "Answer": "Expansion = period during which total production and total employment are increasing; Recession = period during which total production and total employment are decreasing.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What affects the labour force participation rate?",
-        "Answer": "The percentage of the working-age population that is in the labour force."
+        "Question": "What is the Inflation Rate?",
+        "Answer": "The percentage increase in the average level of prices from one year to the next.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What is full employment?",
-        "Answer": "Occurs when the only remaining unemployment is structural and frictional unemployment."
+        "Question": "What does GDP measure?",
+        "Answer": "Production with market values, not quantities. Includes current production (produced in the same year). Does not include used goods or intermediate goods.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What is the natural rate of unemployment?",
-        "Answer": "The sum of frictional and structural unemployment."
+        "Question": "What is the Circular Flow of Income and Expenditure?",
+        "Answer": "A model that illustrates the equality between total production, total income, and total expenditure in an economy.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What is the goal of Employment Insurance (EI)?",
-        "Answer": "To support workers who lose their jobs by replacing part of their income, allowing them to afford to spend more time searching for better jobs."
+        "Question": "What are Transfer Payments?",
+        "Answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+        "n": 2,
+        "ef": 2.6,
+        "interval": 6,
+        "due_date": "2025-11-01"
     },
     {
-        "Question": "What is the effect of a higher minimum wage on unemployment?",
-        "Answer": "If the minimum wage is higher than the market-clearing wage, more people want to work than there are jobs available, creating unemployment."
+        "Question": "What are the three main ways to calculate GDP?",
+        "Answer": "The Expenditure Approach, the Income Approach, and the Value-Added Method.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "What is the difference between the Consumer Price Index (CPI) and the GDP Deflator?",
-        "Answer": "The CPI deals with goods bought by typical households (does not have to be Canadian), while the GDP Deflator deals with goods produced in Canada."
+        "Question": "What is the Value-Added Method?",
+        "Answer": "A method that sums the \"value added\" at each stage of production.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     },
     {
-        "Question": "How does anticipated inflation affect the distribution of income?",
-        "Answer": "When inflation is high, the nominal interest rate is high and the gap between the nominal interest rate and the real interest rate is large, resulting in some people's income rising faster than inflation, increasing their purchasing power, while others' incomes do not."
+        "Question": "What is the difference between Nominal GDP and Real GDP?",
+        "Answer": "Nominal GDP = calculated by summing the current values of final goods and services; Real GDP = calculated by holding prices constant, making it a better measure of changes in production.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
     }
 ]

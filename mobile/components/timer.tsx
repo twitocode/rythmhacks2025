@@ -63,8 +63,8 @@ export default function CountdownTimer() {
       {showFlashcard && currentCard && (
         <Flashcard
           key={flashcardKey}
-          question={currentCard.Question}
-          answer={currentCard.Answer}
+          question={currentCard.question}
+          answer={currentCard.answer}
           onReset={resetTimer}
           onHide={hideFlashcard}
         />

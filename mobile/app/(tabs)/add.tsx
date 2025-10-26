@@ -11,16 +11,10 @@ import {
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import Constants from "expo-constants";
-
-const { manifest2 } = Constants;
-
-const uri =
-  Constants.expoConfig?.hostUri?.split(":").shift()?.concat(":8000");
 
 // TODO change this back later
-// const SERVER_URL = 'http://100.100.61.15:8000';  Nick
-const SERVER_URL = `http://192.168.254.227:8000`; //Toheeb
+const SERVER_URL = 'http://100.100.61.15:8000';
+// const SERVER_URL = `http://192.168.254.227:8000`; //Toheeb
 
 export default function AddScreen() {
   const [selectedFile, setSelectedFile] =
