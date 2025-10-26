@@ -62,6 +62,8 @@ export default function CountdownTimer() {
       setRatings([...ratings, { question: currentCard.Question, difficulty }]);
       console.log('Ratings:', [...ratings, { question: currentCard.Question, difficulty }]);
     }
+
+    
   };
 
   return (

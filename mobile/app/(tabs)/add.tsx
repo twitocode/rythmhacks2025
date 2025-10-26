@@ -13,7 +13,8 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 
 // TODO change this back later
-const SERVER_URL = 'http://100.100.61.15:8000';
+let SERVER_URL = "http://100.100.61.15:8000";
+//SERVER_URL = "https://rythmhacks2025.onrender.com";
 // const SERVER_URL = `http://192.168.254.227:8000`; //Toheeb
 
 export default function AddScreen() {

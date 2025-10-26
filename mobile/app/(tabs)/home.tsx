@@ -1,18 +1,14 @@
-import React from 'react';
-import { Modal, ScrollView, StyleSheet, Dimensions } from 'react-native';
-import { VideoView, useVideoPlayer } from 'expo-video';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import CountdownTimer from '@/components/timer';
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import CountdownTimer from "@/components/timer";
+import { VideoView, useVideoPlayer } from "expo-video";
+import React from "react";
+import { Dimensions, ScrollView, StyleSheet } from "react-native";
 
-const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
+const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
 const VIDEOS = [
-  require('@/assets/videos/1 Hour Of Brainrot Memes V1 - AlienMedia (720p, h264).mp4'),
-  require('@/assets/videos/Instagram Reels Brainrot COMPILATION - Zeit (720p, h264).mp4'),
-  require('@/assets/videos/Try not to laugh at brainrot compilation 10 - OrangeCatMemes (720p, h264).mp4'),
-  require('@/assets/videos/ULTIMATE Brain Rot Quiz 2 - BrainRotBob (720p, h264).mp4'),
-  require('@/assets/videos/brainrot insta reels that make me 🥀 - RartLmao (720p, h264).mp4'),
+  require("@/assets/videos/Instagram Reels Brainrot COMPILATION - Zeit (720p, h264).mp4"),
 ];
 
 export default function HomeScreen() {
@@ -21,7 +17,7 @@ export default function HomeScreen() {
     return VIDEOS[randomIndex];
   });
 
-  const player = useVideoPlayer(videoSource, player => {
+  const player = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
     player.play();
   });
@@ -35,11 +31,7 @@ export default function HomeScreen() {
         <CountdownTimer />
       </ThemedView>
       <ThemedView style={styles.videoSection}>
-        <VideoView
-          player={player}
-          style={styles.video}
-          nativeControls
-        />
+        <VideoView player={player} style={styles.video} nativeControls />
       </ThemedView>
       {/* <ThemedView style={styles.shortsSection}>
         <ThemedText type="subtitle" style={styles.sectionTitle}>
@@ -61,7 +53,7 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: "#e0e0e0",
   },
   content: {
     padding: 10,
@@ -86,7 +78,7 @@ const styles = StyleSheet.create({
   hidden: {
     opacity: 0,
     height: 0,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   visible: {
     opacity: 1,

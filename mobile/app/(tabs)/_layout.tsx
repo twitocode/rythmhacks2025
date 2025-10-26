@@ -32,6 +32,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Entypo name="plus" size={28} color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="cards"
+        options={{
+          title: 'Cards',
+          tabBarIcon: ({ color }) => <Entypo name="documents" size={28} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
