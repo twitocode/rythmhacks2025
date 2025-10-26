@@ -1,6 +1,82 @@
 [
-  {
-    "question": "What is the powerhouse of the cell",
-    "answer": "Mitochondria"
-  }
+    {
+        "Question": "What is the definition of GDP (Gross Domestic Product)?",
+        "Answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+        "n": 1,
+        "ef": 2.5,
+        "interval": 1,
+        "due_date": "2025-10-27"
+    },
+    {
+        "Question": "What is the Business Cycle?",
+        "Answer": "Alternating periods of economic expansion and recession.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What is the difference between Expansion and Recession?",
+        "Answer": "Expansion = period during which total production and total employment are increasing; Recession = period during which total production and total employment are decreasing.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What is the Inflation Rate?",
+        "Answer": "The percentage increase in the average level of prices from one year to the next.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What does GDP measure?",
+        "Answer": "Production with market values, not quantities. Includes current production (produced in the same year). Does not include used goods or intermediate goods.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What is the Circular Flow of Income and Expenditure?",
+        "Answer": "A model that illustrates the equality between total production, total income, and total expenditure in an economy.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What are Transfer Payments?",
+        "Answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+        "n": 2,
+        "ef": 2.6,
+        "interval": 6,
+        "due_date": "2025-11-01"
+    },
+    {
+        "Question": "What are the three main ways to calculate GDP?",
+        "Answer": "The Expenditure Approach, the Income Approach, and the Value-Added Method.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What is the Value-Added Method?",
+        "Answer": "A method that sums the \"value added\" at each stage of production.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    },
+    {
+        "Question": "What is the difference between Nominal GDP and Real GDP?",
+        "Answer": "Nominal GDP = calculated by summing the current values of final goods and services; Real GDP = calculated by holding prices constant, making it a better measure of changes in production.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-10-26"
+    }
 ]

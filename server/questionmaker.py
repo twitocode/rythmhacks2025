@@ -15,10 +15,8 @@ def question_maker(pdf_file):
     Returns a list of flashcards as JSON: [{"Q": "...", "A": "..."}, ...]
     """
 
-
     # Load environment variables
     dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
-
 
     # Initialize Groq client
     client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -28,7 +26,7 @@ def question_maker(pdf_file):
     temp_file = None
     try:
         # Create a temporary file with .pdf suffix
-        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
 
         # Copy the uploaded file content to the temp file
         shutil.copyfileobj(pdf_file.file, temp_file)
@@ -55,16 +53,19 @@ def question_maker(pdf_file):
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[
-                {"role": "system", "content": """
+                {
+                    "role": "system",
+                    "content": """
 
  You are an expert tutor creating study flashcards.
  The flashcards should be formatted as json objects that have question and answer fields.
  Clear and related to the notes. Don't include headings or any other text.these should be clear and based on the notes. Don't include headings. Simply format the flashcards as Q: <question> A: <answer>
-"""},
-                {"role": "user", "content": prompt}
+""",
+                },
+                {"role": "user", "content": prompt},
             ],
             temperature=0.7,
-            max_tokens=800
+            max_tokens=800,
         )
 
         flashcards_text = response.choices[0].message.content.strip()

@@ -1,23 +1,29 @@
 import React from 'react';
-import { Modal, ScrollView, StyleSheet } from 'react-native';
-import YoutubePlayer from 'react-native-youtube-iframe';
+import { Modal, ScrollView, StyleSheet, Dimensions } from 'react-native';
+import { VideoView, useVideoPlayer } from 'expo-video';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import CountdownTimer from '@/components/timer';
 
-const VIDEO_IDS = [
-  '9q6eL3iSATM',
-  'rG7nFkPxg-E',
-  'lgox5KTyzdc',
-  '8HhzRd9taEU',
-  'ngVWupHJzBY',
-  '1T-TOErazVs'
+const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
+
+const VIDEOS = [
+  require('@/assets/videos/1 Hour Of Brainrot Memes V1 - AlienMedia (720p, h264).mp4'),
+  require('@/assets/videos/Instagram Reels Brainrot COMPILATION - Zeit (720p, h264).mp4'),
+  require('@/assets/videos/Try not to laugh at brainrot compilation 10 - OrangeCatMemes (720p, h264).mp4'),
+  require('@/assets/videos/ULTIMATE Brain Rot Quiz 2 - BrainRotBob (720p, h264).mp4'),
+  require('@/assets/videos/brainrot insta reels that make me 🥀 - RartLmao (720p, h264).mp4'),
 ];
 
 export default function HomeScreen() {
-  const [videoId, setVideoId] = React.useState(() => {
-    const randomIndex = Math.floor(Math.random() * VIDEO_IDS.length);
-    return VIDEO_IDS[randomIndex];
+  const [videoSource] = React.useState(() => {
+    const randomIndex = Math.floor(Math.random() * VIDEOS.length);
+    return VIDEOS[randomIndex];
+  });
+
+  const player = useVideoPlayer(videoSource, player => {
+    player.loop = true;
+    player.play();
   });
 
   return (
@@ -29,15 +35,10 @@ export default function HomeScreen() {
         <CountdownTimer />
       </ThemedView>
       <ThemedView style={styles.videoSection}>
-        <YoutubePlayer
-          height={250}
-          play={true}
-          videoId={videoId}
-          initialPlayerParams={{
-            preventFullScreen: false,
-            controls: true,
-            modestbranding: true,
-          }}
+        <VideoView
+          player={player}
+          style={styles.video}
+          nativeControls
         />
       </ThemedView>
       {/* <ThemedView style={styles.shortsSection}>
@@ -63,10 +64,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e0e0e0',
   },
   content: {
-    padding: 20,
+    padding: 10,
   },
   videoSection: {
-    padding: 20,
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 0,
+    paddingBottom: 20,
+  },
+  video: {
+    width: screenWidth - 40,
+    height: screenHeight - 260,
   },
   shortsSection: {
     padding: 20,
