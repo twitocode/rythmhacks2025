@@ -1,87 +1,85 @@
-import sys
-import dotenv
-import sqlite3
-sys.modules['sqlite3'] = sqlite3
-
 import os
 from pathlib import Path
-
+import dotenv
 from groq import Groq
-from langchain.vectorstores import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import TokenTextSplitter
+from langchain_text_splitters import TokenTextSplitter
+import re
+import tempfile
+import shutil
 
-dotenv.load_dotenv(os.path.join(Path(__file__).parent, 'key.env'))
-# --- Configuration ---
-DB_CONFIG = {
-    "pdf": {
-        "data_path": "/Users/DSoni/Documents/RythmHacks/rythmhacks2025/server/Electrical Current.pdf",
-        "db_path": "/Users/DSoni/Downloads/RythmHacks/chroma_db"
-    }
-}
 
-# --- Groq Client ---
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def question_maker(pdf_file):
+    """
+    pdf_file: a file-like object (e.g., from open('file.pdf', 'rb') or UploadFile)
+    Returns a list of flashcards as JSON: [{"Q": "...", "A": "..."}, ...]
+    """
 
-# --- Initialize Chroma database ---
-def initialize_databases():
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    databases = {}
 
-    for db_type, config in DB_CONFIG.items():
-        db_path = config["db_path"]
-        data_path = config["data_path"]
-        os.makedirs(db_path, exist_ok=True)
+    # Load environment variables
+    dotenv.load_dotenv(os.path.join(Path(__file__).parent, "key.env"))
 
-        loader = PyPDFLoader(data_path)
+
+    # Initialize Groq client
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+    # Save uploaded file to temporary location
+    # PyPDFLoader requires a file path, not a file object
+    temp_file = None
+    try:
+        # Create a temporary file with .pdf suffix
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+
+        # Copy the uploaded file content to the temp file
+        shutil.copyfileobj(pdf_file.file, temp_file)
+        temp_file.close()
+
+        # Load and split PDF using the temporary file path
+        loader = PyPDFLoader(temp_file.name)
         docs = loader.load()
 
-        splitter = TokenTextSplitter(chunk_size=600, chunk_overlap=150)
+        splitter = TokenTextSplitter(chunk_size=800, chunk_overlap=150)
         chunks = splitter.split_documents(docs)
+        combined_text = "\n".join([chunk.page_content for chunk in chunks[:10]])
 
-        databases[db_type] = Chroma.from_documents(
-            documents=chunks,
-            embedding=embeddings,
-            persist_directory=db_path
+        # Prompt for flashcards
+        prompt = f"""
+        You are an expert tutor creating study flashcards.
+        Create 10 flashcards from the following notes.
+        Format: Q: <question> A: <answer>
+        Notes:
+        {combined_text}
+        """
+
+        # Query Groq
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {"role": "system", "content": """
+
+ You are an expert tutor creating study flashcards.
+ The flashcards should be formatted as json objects that have question and answer fields.
+ Clear and related to the notes. Don't include headings or any other text.these should be clear and based on the notes. Don't include headings. Simply format the flashcards as Q: <question> A: <answer>
+"""},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=800
         )
 
-    return databases["pdf"]
+        flashcards_text = response.choices[0].message.content.strip()
 
-# --- Generate Flashcards ---
-def generate_flashcards_from_pdf(pdf_db, k=10):
-    all_docs = pdf_db.get()['documents']
-    combined_text = "\n".join(all_docs[:k])
+        # Parse flashcards into JSON
+        flashcards_list = []
+        pattern = re.compile(r"Q:\s*(.*?)\s*A:\s*(.*?)(?=\nQ:|$)", re.DOTALL)
+        matches = pattern.findall(flashcards_text)
 
-    prompt = f"""
-You are an expert tutor creating study flashcards.
-The flashcards should be formatted as json objects that have question and answer fields.
-Clear and related to the notes. Don't include headings. 
-Notes:
-{combined_text}
-"""
+        for q, a in matches:
+            flashcards_list.append({"Question": q.strip(), "Answer": a.strip()})
 
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[
-            {"role": "system", "content": "You are a tutor. Based on the content provided, generate 10 study flashcards. these should be clear and based on the notes. Don't include headings. Simply format the flashcards as Q: <question> A: <answer>."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.7,
-        max_tokens=800
-    )
+        return flashcards_list
 
-    return response.choices[0].message.content.strip()
-
-# --- Main Execution ---
-if __name__ == "__main__":
-    print("📚 Initializing vector database...")
-    pdf_db = initialize_databases()
-    print("Database ready!\n")
-
-    print("⚡ Generating flashcards...")
-    flashcards = generate_flashcards_from_pdf(pdf_db)
-    print("\nFlashcards Generated:\n")
-    print(flashcards)
-    with open('set.json', 'a+') as f:
-        f.write(flashcards)
+    finally:
+        # Clean up the temporary file
+        if temp_file and os.path.exists(temp_file.name):
+            os.unlink(temp_file.name)

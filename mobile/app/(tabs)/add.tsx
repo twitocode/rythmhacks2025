@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
+const SERVER_URL = 'http://100.100.61.15:8000';
+
 export default function AddScreen() {
   const [selectedFile, setSelectedFile] = useState<DocumentPicker.DocumentPickerAsset | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const pickDocument = async () => {
     try {
@@ -20,6 +24,97 @@ export default function AddScreen() {
       }
     } catch (error) {
       Alert.alert('Error', 'Failed to pick document');
+      console.error(error);
+    }
+  };
+
+  const uploadFile = async () => {
+    if (!selectedFile) return;
+
+    setLoading(true);
+    try {
+      console.log('Uploading to:', `${SERVER_URL}/upload-pdf`);
+      console.log('File:', selectedFile.name);
+
+      // Test if server is reachable first
+      const testResponse = await fetch(`${SERVER_URL}/`, { method: 'GET' });
+      console.log('Server reachable:', testResponse.ok);
+
+      const formData = new FormData();
+      formData.append('uploaded_file', {
+        uri: selectedFile.uri,
+        name: selectedFile.name,
+        type: selectedFile.mimeType || 'application/pdf',
+      } as any);
+
+      const response = await fetch(`${SERVER_URL}/upload-pdf`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      console.log('Response status:', response.status);
+      const data = await response.json();
+
+      // Save flashcards to AsyncStorage
+      if (data && Array.isArray(data)) {
+        // Get existing cards
+        const existingCardsJson = await AsyncStorage.getItem('cards');
+        const existingCards = existingCardsJson ? JSON.parse(existingCardsJson) : [];
+
+        // Merge new cards with existing ones
+        const updatedCards = [...existingCards, ...data];
+
+        // Save back to AsyncStorage
+        await AsyncStorage.setItem('cards', JSON.stringify(updatedCards));
+
+        Alert.alert('Success', `${data.length} flashcards generated and saved!`);
+        console.log('Saved cards:', updatedCards);
+      } else {
+        Alert.alert('Success', 'Flashcards generated!');
+        console.log(data);
+      }
+
+      setSelectedFile(null);
+    } catch (error) {
+      console.error('Full error:', error);
+      Alert.alert('Error', `Failed to upload: ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const clearStorage = async () => {
+    Alert.alert(
+      'Clear Storage',
+      'Are you sure you want to delete all flashcards?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await AsyncStorage.removeItem('cards');
+              Alert.alert('Success', 'All flashcards have been deleted');
+            } catch (error) {
+              Alert.alert('Error', 'Failed to clear storage');
+              console.error(error);
+            }
+          },
+        },
+      ]
+    );
+  };
+
+  const previewCards = async () => {
+    try {
+      const cardsData = await AsyncStorage.getItem('cards');
+      Alert.alert('Raw Storage Data', cardsData || 'No data in storage');
+    } catch (error) {
+      Alert.alert('Error', 'Failed to retrieve storage data');
       console.error(error);
     }
   };
@@ -43,6 +138,34 @@ export default function AddScreen() {
                 <ThemedText>Size: {(selectedFile.size! / 1024).toFixed(2)} KB</ThemedText>
               </ThemedView>
             )}
+
+            {selectedFile && (
+              <TouchableOpacity
+                style={[styles.uploadButton, styles.generateButton]}
+                onPress={uploadFile}
+                disabled={loading}
+              >
+                {loading ? (
+                  <ActivityIndicator color="#fff" />
+                ) : (
+                  <ThemedText style={styles.uploadButtonText}>Upload & Generate Flashcards</ThemedText>
+                )}
+              </TouchableOpacity>
+            )}
+
+            <TouchableOpacity
+              style={[styles.uploadButton, styles.previewButton]}
+              onPress={previewCards}
+            >
+              <ThemedText style={styles.uploadButtonText}>Preview Raw Storage Data</ThemedText>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.uploadButton, styles.clearButton]}
+              onPress={clearStorage}
+            >
+              <ThemedText style={styles.uploadButtonText}>Clear All Flashcards</ThemedText>
+            </TouchableOpacity>
         </ThemedView>
     </ScrollView>
   );
@@ -81,5 +204,14 @@ const styles = StyleSheet.create({
     fileName: {
         fontWeight: 'bold',
         marginVertical: 5,
+    },
+    generateButton: {
+        backgroundColor: '#10a37f',
+    },
+    previewButton: {
+        backgroundColor: '#6b7280',
+    },
+    clearButton: {
+        backgroundColor: '#dc2626',
     },
 });

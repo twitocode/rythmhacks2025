@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { ThemedView } from './themed-view';
 
-export default function Flashcard({ onReset, onHide }: any) {
+export default function Flashcard({ question, answer, onReset, onHide }: any) {
     const [showQuestion, setShowQuestion] = useState(true);
     const [showButton, setShowButton] = useState(true);
     const [showAnswer, setShowAnswer] = useState(false);
@@ -22,7 +22,7 @@ export default function Flashcard({ onReset, onHide }: any) {
         <ThemedView style={styles.flashcardContainer}>
             {showQuestion && (
                 <ThemedText type="title">
-                    What is the mitochondria?
+                    {question}
                 </ThemedText>
             )}
             {showButton && (
@@ -33,7 +33,7 @@ export default function Flashcard({ onReset, onHide }: any) {
             {showAnswer && (
                 <>
                     <ThemedText>
-                        The powerhouse of the cell
+                        {answer}
                     </ThemedText>
                 </>
             )}
