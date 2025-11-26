@@ -58,6 +58,7 @@ async def get_question():
 
     today = datetime.now().date()
 
+    # Get both due questions AND new questions (n=0)
     due_questions = [
         q
         for q in questions
@@ -65,12 +66,16 @@ async def get_question():
         and datetime.strptime(q["due_date"], "%Y-%m-%d").date() <= today
     ]
 
-    if due_questions:
-        return random.choice(due_questions)
+    # Also include new questions that haven't been reviewed yet
+    new_questions = [q for q in questions if q.get("n", 0) == 0]
 
-    new_questions = [q for q in questions if q.get("n") == 0]
-    if new_questions:
-        return random.choice(new_questions)
+    # Combine both lists (removing duplicates if any)
+    available_questions = due_questions + [
+        q for q in new_questions if q not in due_questions
+    ]
+
+    if available_questions:
+        return random.choice(available_questions)
 
     return {"message": "No questions are currently due for review."}
 
@@ -79,24 +84,23 @@ async def get_question():
 async def get_questions():
     try:
         with open("set.json", "r") as file:
-            questions = json.load(file) or {}
+            content = file.read().strip()
+            if not content:
+                # Initialize with empty structure
+                return []
+            questions = json.loads(content)
         return questions
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
+        # Create the file with an empty array if it doesn't exist or is invalid
+        with open("set.json", "w") as file:
+            json.dump([], file)
         return []
 
 
 @app.post("/upload-pdf")
 async def upload_pdf(uploaded_file: Annotated[UploadFile, File(...)]):
     print("Received file:", uploaded_file.filename)
-    flashcards_list = question_maker(uploaded_file)
-
-    # Initialize SM-2 parameters for each new card
-    for card in flashcards_list:
-        card["n"] = 0
-        card["ef"] = 2.5
-        card["interval"] = 0
-        card["due_date"] = datetime.now().strftime("%Y-%m-%d")
-
+    flashcards_list = await question_maker(uploaded_file)
     return flashcards_list
 
 
@@ -131,7 +135,7 @@ async def review_question(question: str, quality: int):
 
     question_to_update = None
     for i, q in enumerate(questions):
-        if q["Question"] == question:
+        if q["question"] == question:
             print("question is the same")
             n = q.get("n", 0)
             ef = q.get("ef", 2.5)

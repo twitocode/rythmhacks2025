@@ -1,0 +1,130 @@
+[
+    {
+        "question": "What is the working-age population?",
+        "answer": "Individuals aged 15 and older.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the labour force?",
+        "answer": "All people who are working or actively looking for work.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the unemployment rate?",
+        "answer": "The percentage of the labour force that is unemployed.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the labour force participation rate?",
+        "answer": "The percentage of the working-age population that is in the labour force.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the employment-population ratio?",
+        "answer": "Measures the portion of the population engaged in paid work.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is discouraged workers?",
+        "answer": "People who are available for work but have not looked for a job during the previous four weeks.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is frictional unemployment?",
+        "answer": "Short-term unemployment due to people transitioning between jobs.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is structural unemployment?",
+        "answer": "Long-term unemployment due to skills mismatch between workers and jobs.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is cyclical unemployment?",
+        "answer": "Unemployment caused by business cycle fluctuations.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the natural rate of unemployment?",
+        "answer": "The sum of frictional and structural unemployment.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the Consumer Price Index (CPI)?",
+        "answer": "A measure of inflation based on the prices of a basket of goods and services.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the Prime Rate?",
+        "answer": "The rate at which the most credit-worthy businesses can borrow.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the Overnight Rate?",
+        "answer": "The rate at which banks can borrow from other banks for a period of 24 hours.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is the effect of inflation on income distribution?",
+        "answer": "Inflation can increase the purchasing power of some people's income but decrease others.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    },
+    {
+        "question": "What is menu costs?",
+        "answer": "The costs to firms of changing prices due to inflation.",
+        "n": 1,
+        "ef": 2.6,
+        "interval": 1,
+        "due_date": "2025-11-27"
+    },
+    {
+        "question": "What is the difference between nominal and real interest rates?",
+        "answer": "Real interest rates correct for the effect of inflation on the purchasing power of money.",
+        "n": 0,
+        "ef": 2.5,
+        "interval": 0,
+        "due_date": "2025-11-26"
+    }
+]
