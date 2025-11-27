@@ -6,8 +6,8 @@ import { ThemedView } from "./themed-view";
 
 
 interface Card {
-  Question: string;
-  Answer: string;
+  question: string;
+  answer: string;
   ratings?: number[];
 }
 
@@ -62,10 +62,10 @@ export default function CountdownTimer() {
 
   const handleRating = async (difficulty: 1 | 2 | 3) => {
     if (currentCard) {
-      setRatings([...ratings, { question: currentCard.Question, difficulty }]);
+      setRatings([...ratings, { question: currentCard.question, difficulty }]);
       console.log("Ratings:", [
         ...ratings,
-        { question: currentCard.Question, difficulty },
+        { question: currentCard.question, difficulty },
       ]);
     }
   };
@@ -77,8 +77,8 @@ export default function CountdownTimer() {
       {currentCard && (
         <Flashcard
           key={flashcardKey}
-          question={currentCard.Question}
-          answer={currentCard.Answer}
+          question={currentCard.question}
+          answer={currentCard.answer}
           onReset={resetTimer}
           onHide={hideFlashcard}
           visible={showFlashcard}

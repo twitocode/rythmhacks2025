@@ -7,8 +7,8 @@ import { ThemedView } from "@/components/themed-view";
 
 
 type Card = {
-  Question: string;
-  Answer: string;
+  question: string;
+  answer: string;
   n: number;
   ef: number;
   interval: number;
@@ -59,7 +59,7 @@ export default function cards() {
               backgroundColor: card.n > 1 ? determineCardColour(card) : "#4b4a4aff",
             }}
           >
-            <ThemedText style={styles.cardTitle}>{card.Question}</ThemedText>
+            <ThemedText style={styles.cardTitle}>{card.question}</ThemedText>
             <ThemedText>Due next on {card.due_date}</ThemedText>
           </View>
         ))}

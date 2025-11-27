@@ -1,130 +1,874 @@
 [
-    {
-        "question": "What is the working-age population?",
-        "answer": "Individuals aged 15 and older.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the labour force?",
-        "answer": "All people who are working or actively looking for work.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the unemployment rate?",
-        "answer": "The percentage of the labour force that is unemployed.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the labour force participation rate?",
-        "answer": "The percentage of the working-age population that is in the labour force.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the employment-population ratio?",
-        "answer": "Measures the portion of the population engaged in paid work.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is discouraged workers?",
-        "answer": "People who are available for work but have not looked for a job during the previous four weeks.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is frictional unemployment?",
-        "answer": "Short-term unemployment due to people transitioning between jobs.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is structural unemployment?",
-        "answer": "Long-term unemployment due to skills mismatch between workers and jobs.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is cyclical unemployment?",
-        "answer": "Unemployment caused by business cycle fluctuations.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the natural rate of unemployment?",
-        "answer": "The sum of frictional and structural unemployment.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the Consumer Price Index (CPI)?",
-        "answer": "A measure of inflation based on the prices of a basket of goods and services.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the Prime Rate?",
-        "answer": "The rate at which the most credit-worthy businesses can borrow.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the Overnight Rate?",
-        "answer": "The rate at which banks can borrow from other banks for a period of 24 hours.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is the effect of inflation on income distribution?",
-        "answer": "Inflation can increase the purchasing power of some people's income but decrease others.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    },
-    {
-        "question": "What is menu costs?",
-        "answer": "The costs to firms of changing prices due to inflation.",
-        "n": 1,
-        "ef": 2.6,
-        "interval": 1,
-        "due_date": "2025-11-27"
-    },
-    {
-        "question": "What is the difference between nominal and real interest rates?",
-        "answer": "Real interest rates correct for the effect of inflation on the purchasing power of money.",
-        "n": 0,
-        "ef": 2.5,
-        "interval": 0,
-        "due_date": "2025-11-26"
-    }
+  {
+    "question": "What is the working-age population?",
+    "answer": "Individuals aged 15 and older.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the labour force?",
+    "answer": "All people who are working or actively looking for work.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the unemployment rate?",
+    "answer": "The percentage of the labour force that is unemployed.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the labour force participation rate?",
+    "answer": "The percentage of the working-age population that is in the labour force.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the employment-population ratio?",
+    "answer": "Measures the portion of the population engaged in paid work.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is discouraged workers?",
+    "answer": "People who are available for work but have not looked for a job during the previous four weeks.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is frictional unemployment?",
+    "answer": "Short-term unemployment due to people transitioning between jobs.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is structural unemployment?",
+    "answer": "Long-term unemployment due to skills mismatch between workers and jobs.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is cyclical unemployment?",
+    "answer": "Unemployment caused by business cycle fluctuations.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the natural rate of unemployment?",
+    "answer": "The sum of frictional and structural unemployment.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Consumer Price Index (CPI)?",
+    "answer": "A measure of inflation based on the prices of a basket of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Prime Rate?",
+    "answer": "The rate at which the most credit-worthy businesses can borrow.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Overnight Rate?",
+    "answer": "The rate at which banks can borrow from other banks for a period of 24 hours.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the effect of inflation on income distribution?",
+    "answer": "Inflation can increase the purchasing power of some people's income but decrease others.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is menu costs?",
+    "answer": "The costs to firms of changing prices due to inflation.",
+    "n": 1,
+    "ef": 2.6,
+    "interval": 1,
+    "due_date": "2025-11-27"
+  },
+  {
+    "question": "What is the difference between nominal and real interest rates?",
+    "answer": "Real interest rates correct for the effect of inflation on the purchasing power of money.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is GDP?",
+    "answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Business Cycle?",
+    "answer": "Alternating periods of economic expansion and recession.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is a period of economic expansion?",
+    "answer": "A period during which total production and total employment are increasing.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is a period of economic recession?",
+    "answer": "A period during which total production and total employment are decreasing.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Economic Growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Inflation Rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "Why cannot the inflation rate be calculated for the base year?",
+    "answer": "Because measures production with market values, not quantities. Don't compare apples to oranges, compare dollars to dollars.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Circular Flow of Income and Expenditure?",
+    "answer": "This model illustrates the equality between total production, total income, and total expenditure in an economy.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are Transfer Payments?",
+    "answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the three main ways to calculate GDP?",
+    "answer": "The expenditure approach, the income approach, and the value-added method.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Real GDP?",
+    "answer": "Holds prices constant, which makes it a better measure than nominal GDP of changes in the production of goods and services from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the GDP Deflator?",
+    "answer": "Tracks the overall price level (inflation/deflation) over time.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Household Disposable Income?",
+    "answer": "HouseholdDisposableIncome=HouseholdIncome\u2212Personaltaxpayments",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Gross Domestic Income?",
+    "answer": "This is essentially another name for the income approach to calculating GDP, representing the sum of all income payments to households (wages, interest, rent, and profits) generated from production within the country.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is National income accounting?",
+    "answer": "Methods government agencies use to track total production and income in the economy.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the shortcomings of GDP as a measure of well-being?",
+    "answer": "Ex: Get iPhone parts for $200. Assemble it, sell for $2000. Value added = $1800. Household Production: Goods/services people make for themselves (like childcare, cleaning, cooking, DIY projects) are not counted. If these tasks are outsourced, they are counted, even if total production hasn't truly changed. Informal Economy: Transactions hidden from the government (illegal goods/services, tax evasion, avoiding regulation) are excluded. Leisure Time: An increase in working hours might boost GDP but reduce quality of life.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the difference between Nominal GDP and Real GDP?",
+    "answer": "Nominal GDP: Calculated by summing the current values of final goods and services. It reflects both price and quantity changes. Real GDP: Calculated by designating a particular year as the base year and then using the prices of goods and services in the base year to calculate the value of goods and services in all other years.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the purpose of the GDP Deflator?",
+    "answer": "To track the overall price level (inflation/deflation) over time.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is GDP?",
+    "answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the key concepts for GDP calculation?",
+    "answer": "The value of the final good, not the separate value of intermediate goods, and not including used goods.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Business Cycle?",
+    "answer": "Alternating periods of economic expansion and recession.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Economic Growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Inflation Rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "How does GDP measure production?",
+    "answer": "Measures production with market values, not quantities. Don't compare apples to oranges, compare dollars to dollars.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "Who gets the money when you buy something?",
+    "answer": "The money you spend doesn't disappear \u2014 it becomes someone else's income.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is a Transfer Payment?",
+    "answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the three main ways to calculate GDP?",
+    "answer": "The Expenditure Approach, the Income Approach, and the Value-Added Method.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the difference between GDP and GNI?",
+    "answer": "The factors of production for GNI must be Canadian-owned.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "Why is Real GDP a better measure than Nominal GDP?",
+    "answer": "Real GDP holds prices constant, which makes it a better measure than nominal GDP of changes in the production of goods and services from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is GDP (Gross Domestic Product)?",
+    "answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are final goods and services?",
+    "answer": "Goods and services that are purchased by their final user and are not included in the production of any other good or service.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are intermediate goods?",
+    "answer": "Goods and services that are an input into another good or service.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Business Cycle?",
+    "answer": "Alternating periods of economic expansion and recession.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Economic Growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Inflation Rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "How is GDP calculated?",
+    "answer": "There are three main ways to calculate GDP: the expenditure approach, the income approach, and the value-added method.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Expenditure Approach?",
+    "answer": "This approach sums up all the spending on domestically produced goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Income Approach?",
+    "answer": "This approach sums up all the income received by Canadians as the result of production that takes place in Canada.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Value-Added Method?",
+    "answer": "This method sums the 'value added' at each stage of production.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Real GDP?",
+    "answer": "Real GDP holds prices constant, which makes it a better measure than nominal GDP of changes in the production of goods and services from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the GDP Deflator?",
+    "answer": "Tracks the overall price level (inflation/deflation) over time.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Household Disposable Income?",
+    "answer": "Household Disposable Income = Household Income - Personal tax payments",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the definition of GDP?",
+    "answer": "The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the business cycle?",
+    "answer": "Alternating periods of economic expansion and recession.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is a recession?",
+    "answer": "A period during which total production and total employment are decreasing.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is economic growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the inflation rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the circular flow of income and expenditure?",
+    "answer": "A model that illustrates the equality between total production, total income, and total expenditure in an economy.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are transfer payments?",
+    "answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the three main ways to calculate GDP?",
+    "answer": "The expenditure approach, the income approach, and the value-added method.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the value-added method?",
+    "answer": "A method that sums the 'value added' at each stage of production, which is the additional market value a firm gives a product.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the difference between real and nominal GDP?",
+    "answer": "Real GDP holds prices constant, while nominal GDP reflects both price and quantity changes.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the GDP deflator?",
+    "answer": "A measure that tracks the overall price level (inflation/deflation) over time, calculated as (Nominal GDP / Real GDP) * 100.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is household income?",
+    "answer": "Income received by households.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is household disposable income?",
+    "answer": "Income available to households after personal tax payments are deducted.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is net national income (NNI)?",
+    "answer": "The income earned by households and governments, minus corporate earnings kept by firms.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is gross domestic income?",
+    "answer": "The sum of all income payments to households (wages, interest, rent, and profits) generated from production within the country.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What does GDP stand for?",
+    "answer": "Gross Domestic Product",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the market value of all final goods & services produced in a region in a given period?",
+    "answer": "Gross Domestic Product (GDP)",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What happens if we include the value of intermediate goods in GDP calculation?",
+    "answer": "We would be double counting",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the business cycle?",
+    "answer": "Alternating periods of economic expansion and recession",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is expansion in the business cycle?",
+    "answer": "A period during which total production and total employment are increasing",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is recession in the business cycle?",
+    "answer": "A period during which total production and total employment are decreasing",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is economic growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the inflation rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What does GDP measure?",
+    "answer": "Measures production with market values, not quantities",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What does the circular flow of income and expenditure represent?",
+    "answer": "The equality between total production, total income, and total expenditure in an economy",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are transfer payments?",
+    "answer": "Payments by the government to households for which the government does not receive a new good or service in return",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are the three main ways to calculate GDP?",
+    "answer": "The expenditure approach, the income approach, and the value-added method",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the expenditure approach in calculating GDP?",
+    "answer": "This approach sums up all the spending on domestically produced goods and services",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the income approach in calculating GDP?",
+    "answer": "This approach sums up all the income received by Canadians as the result of production that takes place in Canada",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the value-added method in calculating GDP?",
+    "answer": "This method sums the 'value added' at each stage of production",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "Why is GDP not a perfect measure of well-being?",
+    "answer": "Because it doesn't account for household production, informal economy, leisure time, environmental quality, income distribution, non-market activities, and product quality improvements",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is real GDP?",
+    "answer": "Holds prices constant, making it a better measure of changes in the production of goods and services from one year to the next",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the GDP deflator?",
+    "answer": "Tracks the overall price level (inflation/deflation) over time",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is household disposable income?",
+    "answer": "Household income minus personal tax payments",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the division of income?",
+    "answer": "Calculated by starting with Net National Income (NNI), then subtracting corporate earnings kept by firms and adding government transfer payments and interest households earn on government bonds",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is GDP?",
+    "answer": "GDP (Gross Domestic Product): The market value of all final goods & services produced in a region (country) in a given period of time (year).",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Business Cycle?",
+    "answer": "Alternating periods of economic expansion and recession.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Expansion?",
+    "answer": "A period during which total production and total employment are increasing.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Recession?",
+    "answer": "A period during which total production and total employment are decreasing.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Economic Growth?",
+    "answer": "The ability for an economy to produce increasing quantities of goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Inflation Rate?",
+    "answer": "The percentage increase in the average level of prices from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What does GDP include?",
+    "answer": "Current production (produced in the same year), final goods and services, and produced in one country.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Circular Flow of Income and Expenditure?",
+    "answer": "A model that illustrates the equality between total production, total income, and total expenditure in an economy.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What are Transfer Payments?",
+    "answer": "Payments by the government to households for which the government does not receive a new good or service in return.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Expenditure Approach?",
+    "answer": "A method of calculating GDP by summing up all the spending on domestically produced goods and services.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Income Approach?",
+    "answer": "A method of calculating GDP by summing up all the income received by Canadians as the result of production that takes place in Canada.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the Value-Added Method?",
+    "answer": "A method of calculating GDP by summing the 'value added' at each stage of production.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Real GDP?",
+    "answer": "A measure of GDP that holds prices constant, which makes it a better measure than nominal GDP of changes in the production of goods and services from one year to the next.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is the GDP Deflator?",
+    "answer": "A measure of the overall price level (inflation/deflation) over time, calculated by dividing nominal GDP by real GDP and multiplying by 100.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Household Disposable Income?",
+    "answer": "Household income minus personal tax payments.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  },
+  {
+    "question": "What is Gross Domestic Income?",
+    "answer": "The sum of all income payments to households (wages, interest, rent, and profits) generated from production within the country.",
+    "n": 0,
+    "ef": 2.5,
+    "interval": 0,
+    "due_date": "2025-11-26"
+  }
 ]
